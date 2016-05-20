@@ -104,7 +104,7 @@ public class Client extends Applet implements Runnable, KeyListener, MouseListen
 				playerY += 10;
 			}
 
-			if (right || left || up || down || click) {
+			if (right || left || up || down) {
 				try {				
 					System.out.println("PLAYER ID " + playerId);
 					System.out.println("X " + playerX);
@@ -115,12 +115,12 @@ public class Client extends Applet implements Runnable, KeyListener, MouseListen
 					out.writeInt(playerX);
 					out.writeInt(playerY);
 					//out.writeInt(playerNumberOfClicks);
+
 				} catch (IOException e) {
 					System.out.println("Error sending coordinates");
 				}
-				 
+				repaint();
 			}
-			repaint();
 
 			try {
 				Thread.sleep(100);
@@ -166,6 +166,7 @@ public class Client extends Applet implements Runnable, KeyListener, MouseListen
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		this.numberOfClicks[playerId]++;
+		click = true;
 	}
 
 	@Override
