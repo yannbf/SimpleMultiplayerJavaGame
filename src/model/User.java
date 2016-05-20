@@ -12,6 +12,7 @@ public class User implements Runnable{
 	int playerIdInput;
 	int xInput;
 	int yInput;
+	int numberOfClicks;
 	
 	public User(DataOutputStream out, DataInputStream in, User[] user, int pid) {
 		super();
@@ -35,11 +36,13 @@ public class User implements Runnable{
 				playerIdInput = in.readInt();
 				xInput = in.readInt();
 				yInput = in.readInt();
+				numberOfClicks = in.readInt();
 				for(int i = 0 ; i < 10; i++){
 					if(user[i] != null){
 						user[i].out.writeInt(playerIdInput);
 						user[i].out.writeInt(xInput);
 						user[i].out.writeInt(yInput);
+						user[i].out.writeInt(numberOfClicks);
 					}
 				}
 			} catch(IOException ex){
