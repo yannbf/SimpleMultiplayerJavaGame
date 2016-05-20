@@ -18,9 +18,14 @@ public class Input implements Runnable {
 		try {
 			while (true) {
 				int playerId = in.readInt();
+				System.out.println("PLAYER ID " + playerId);
 				int xInput = in.readInt();
+				System.out.println("X " + xInput);
 				int yInput = in.readInt();
+				System.out.println("Y " + yInput);
 				client.updateCoordinates(playerId, xInput, yInput);
+				//int numberOfClicks = in.readInt();
+				//client.updateClickCount(playerId, numberOfClicks);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
